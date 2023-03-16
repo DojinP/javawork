@@ -1,0 +1,20 @@
+1. java 실행
+2. .class 파일 검증
+3. 클래스 로더가 검증된 .class 파일을 사용하기 위해 Runtime Data Area의 Method Area에 올려놓는다
+
+
+Runtime Data Area
+ - Method Area
+  - 바이트코드
+  - 클래스
+  - 인터페이스
+  - static 멤버들
+  - 상수
+  - main 같은?
+ - Stack Area
+  - main에서 사용되는 값들 같은?
+  - 현재 실행중인 메소드에서 필요한 값들이 저장되는 공간
+  - 메소드 실행이 종료되면 메모리에서 지워짐
+ - Heap Area
+  - API에 포함되어 있는 클래스
+  - 개발자가 만드는 클래스
