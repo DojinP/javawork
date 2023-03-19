@@ -1,6 +1,7 @@
 package network;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -19,8 +20,15 @@ public class MyNetServer01 {
 			// 		=> 대기하다가 클라이언트가 접속하면 클라이언트 정보를 객체로 만들어서 리턴
 			//									------------
 			//									소켓으로 만들어져서 리턴된다.
-			Socket client = server.accept();
-			System.out.println(client);
+			while (true) {
+				// 클라이언트의 접속을 대기하면서 클라이언트가 접속하면
+				// 클라이언트와 통신할 수 있도록 input/output 모두 쓰레드가 생성
+				Socket client = server.accept();
+				InetAddress clientIp = client.getInetAddress();
+				System.out.println("접속한 클라이언트 => " + clientIp.getHostAddress());
+			}
+			
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
