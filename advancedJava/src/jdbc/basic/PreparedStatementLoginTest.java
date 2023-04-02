@@ -2,18 +2,18 @@ package jdbc.basic;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 
-public class LoginTest_Ver2 {
+public class PreparedStatementLoginTest {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		LoginTest_Ver2 obj = new LoginTest_Ver2();
+		PreparedStatementLoginTest obj = new PreparedStatementLoginTest();
 		System.out.print("ID : ");
-		String id = sc.next();
+		String id = sc.nextLine();
 		System.out.print("PW : ");
 		String pass = sc.next();
 		
@@ -22,17 +22,19 @@ public class LoginTest_Ver2 {
 
 	public void login(String id, String pass) {
 		String url = "jdbc:mysql://127.0.0.1/jdbc?serverTimezone=UTC";
-		String user = "exam";
-		String password = "exam";
-//		String password = "1234";
-		String sql = "select * from customer where id = '" + id + "' and pass = '" + pass + "'";
+		String user = "jdbc";
+		String password = "jdbc";
+		String sql = "select * from customer where id = ? and pass = ?";
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, user, password);
-			Statement stmt = con.createStatement();
+			PreparedStatement ptmt = con.prepareStatement(sql);
 
-			ResultSet rs = stmt.executeQuery(sql);
+			ptmt.setString(1, id);
+			ptmt.setString(2, pass);
+			
+			ResultSet rs = ptmt.executeQuery();
 
 			if(rs.next()) {
 				System.out.print(rs.getString(1) + "\t");

@@ -4,24 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Scanner;
 
-public class DeleteTest_Ver2 {
-
+public class InsertTest2 {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		DeleteTest_Ver2 obj = new DeleteTest_Ver2();
-		System.out.print("삭제할 id 입력 : ");
-		String id = sc.next();
-		obj.delete(id);
-	}
-	
-	public void delete(String id) {
-		String url = "jdbc:mysql://127.0.0.1:3306/jdbc";
-		String user = "exam";
-		String password = "exam";
-//		String password = "1234";
-		String sql = "delete from customer where id = '" + id + "'";
+		String url = "jdbc:mysql://127.0.0.1:3306/jdbc?serverTimezone=UTC";
+		String user = "jdbc";
+		String password = "jdbc";
+		String sql = "insert into customer values('bts', '1234', '방탄소년단', '천안', sysdate(), 1000, 'army')";
 		try {
 			// 1. 드라이버 로딩
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -39,7 +28,7 @@ public class DeleteTest_Ver2 {
 			int result = stmt.executeUpdate(sql);
 			
 			// 5. 결과처리
-			System.out.println(result + "개 행 삭제 성공.");
+			System.out.println(result + "개 행 삽입 성공.");
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

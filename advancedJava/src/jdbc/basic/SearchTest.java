@@ -11,7 +11,7 @@ public class SearchTest {
 	public static void main(String[] args) {
 		String url = "jdbc:mysql://127.0.0.1/jdbc";
 		String user = "exam";
-		String password = "1234";
+		String password = "exam";
 		String sql = "select empno, ename, job, mgr, hiredate, sal from emp ";
 				sql += "where sal > (select avg(sal) ";
 				sql += "             from emp ";

@@ -8,9 +8,9 @@ import java.sql.Statement;
 public class InsertTest {
 
 	public static void main(String[] args) {
-		String url = "jdbc:mysql://127.0.0.1:3306/jdbc";
-		String user = "exam";
-		String password = "1234";
+		String url = "jdbc:mysql://127.0.0.1:3306/jdbc?serverTimezone=UTC";
+		String user = "jdbc";
+		String password = "jdbc";
 		String sql = "insert into customer values('bts', '1234', '방탄소년단', '천안', sysdate(), 1000, 'army')";
 		try {
 			// 1. 드라이버 로딩
