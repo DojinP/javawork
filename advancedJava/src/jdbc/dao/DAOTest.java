@@ -28,6 +28,7 @@ public class DAOTest {
 			ui.insertMenu();
 			break;
 		case 2:
+			ui.getMemberListMenu();
 			break;
 		case 3:
 			ui.updateMenu();
@@ -42,6 +43,7 @@ public class DAOTest {
 			ui.login();
 			break;
 		case 7:
+			ui.getInfoMenu();
 			break;
 		}
 	}

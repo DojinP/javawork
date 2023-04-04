@@ -29,7 +29,8 @@ public class DBUtil {
 	
 	// DB서버에 연결하고 Connection을 리턴하는 메소드
 	public static Connection getConnect() {
-		String url = "jdbc:mysql://127.0.0.1:3306/jdbc?serverTimezone=UTC";
+//		String url = "jdbc:mysql://127.0.0.1:3306/jdbc?serverTimezone=UTC";
+		String url = "jdbc:mysql://172.30.1.41:3306/jdbc?serverTimezone=UTC";
 		String user = "exam";
 		String password = "exam";
 		Connection conn = null;
